@@ -1,17 +1,13 @@
-import Actions from "./actions/Actions";
 import React from "react";
+import {Navigation} from "./Navigation";
 
 interface Props {
-    title: string,
 }
 
-export const Header: React.FC<Props> = ({title}) => {
+export const Header: React.FC<Props> = (props) => {
     return (
-        <header className='header'>
-            <h1>
-                {title}
-            </h1>
-            <Actions/>
+        <header className='navbar'>
+
         </header>
     );
 }
