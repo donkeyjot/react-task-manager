@@ -58,15 +58,23 @@ const TaskDetail: FunctionComponent<Props> = (props) => {
     }
 
     useEffect(() => {
+        let isApiSubscribed = true
         if (id) {
             getTask(id)
                 .then(response => {
-                    setIsLoaded(true)
-                    setTask(response?.data)
+                    if (isApiSubscribed) {
+                        setIsLoaded(true)
+                        setTask(response?.data)
+                    }
                 }, error => {
-                    setIsLoaded(true)
-                    setError(error)
+                    if (isApiSubscribed) {
+                        setIsLoaded(true)
+                        setError(error)
+                    }
                 })
+            return () => {
+                isApiSubscribed = false
+            }
         }
     }, [])
 

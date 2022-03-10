@@ -1,6 +1,6 @@
 import React, {FunctionComponent, useEffect, useState} from 'react';
 import {getTasks} from "../adapters/taskList.adapter";
-import TaskDetail, {Task} from "./TaskDetail";
+import {Task} from "./TaskDetail";
 import {Link} from "react-router-dom";
 
 interface OwnProps {
@@ -35,8 +35,8 @@ const TaskList: FunctionComponent<Props> = (props) => {
             <ul>
                 {tasks.map(task => {
                     return (
-                        <Link to={`/tasks/${task._id}`}>
-                            <li key={task._id} className='list'>
+                        <Link key={task._id} to={`/tasks/${task._id}`}>
+                            <li className='list'>
                                 <span>{task.title}</span>
                                 <span>{task.content}</span>
                             </li>
