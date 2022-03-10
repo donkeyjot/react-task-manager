@@ -5,9 +5,6 @@ import TaskList from "./pages/TaskList";
 import TaskDetail from "./pages/TaskDetail";
 import AddTask from "./pages/AddTask";
 import {Navigation} from "./components/Navigation";
-import {QueryClient, QueryClientProvider} from "react-query";
-
-const queryClient = new QueryClient()
 
 function App() {
 
